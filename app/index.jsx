@@ -6,6 +6,8 @@ import {Provider} from 'react-redux'
 import RouterMap from './router/RouterMap'
 import configureStore from './store/configureStore'
 
+import './static/css/common.less'
+import './static/css/font.css'
 const store = configureStore()
 render(
     <Provider store={store}>
