@@ -30,6 +30,14 @@ router.post('/api/post', koaBody, function *(next){
     this.body = JSON.stringify(this.request.body)
 })
 
+/*------------------------------------------------------------*/
+
+/* 响应特惠广告信息的请求 */
+
+var homeAdData = require('./home/ad.js')
+router.get('/api/homead', function *(next){
+    this.body = homeAdDate
+})
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000 端口
