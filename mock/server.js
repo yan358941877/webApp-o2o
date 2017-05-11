@@ -36,8 +36,15 @@ router.post('/api/post', koaBody, function *(next){
 
 var homeAdData = require('./home/ad.js')
 router.get('/api/homead', function *(next){
-    this.body = homeAdDate
+    this.body = homeAdData
 })
+
+var guesslist = require('./home/guesslist.js')
+
+router.get('/api/guess', function *(next){
+    this.body = guesslist
+})
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000 端口
