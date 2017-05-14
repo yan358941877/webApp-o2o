@@ -46,7 +46,8 @@ router.get('/api/guess/:city/:page', function *(next){
     const params = this.params
     const paramsCity = params.city
     const paramsPage = params.page
-
+    console.log(paramsCity)
+    console.log(paramsPage)
     if(paramsPage==8){
         guesslist.hasMore = false
     }else {
