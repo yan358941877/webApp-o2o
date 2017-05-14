@@ -13,7 +13,7 @@ class Home extends React.Component{
                 <div style={{height: '15px'}}>{/* 分割线 */}</div>
                 <Ad/>
                 <div style={{height: '15px'}}>{/* 分割线 */}</div>
-                <GuessList />
+                <GuessList cityName={this.props.userinfo.cityName}/>
             </div>
         )
     }

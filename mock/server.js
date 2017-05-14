@@ -39,9 +39,19 @@ router.get('/api/homead', function *(next){
     this.body = homeAdData
 })
 
+// 首页——推荐列表(猜你喜欢)
 var guesslist = require('./home/guesslist.js')
+router.get('/api/guess/:city/:page', function *(next){
 
-router.get('/api/guess', function *(next){
+    const params = this.params
+    const paramsCity = params.city
+    const paramsPage = params.page
+
+    if(paramsPage==8){
+        guesslist.hasMore = false
+    }else {
+        guesslist.hasMore = true
+    }
     this.body = guesslist
 })
 
