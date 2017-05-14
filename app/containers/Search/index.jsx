@@ -1,5 +1,7 @@
 import React from 'react'
 import SearchHeader from '../../components/SearchHeader'
+import SearchList from './subpage/SearchList'
+
 import './style.less'
 
 class Search extends React.Component {
@@ -12,7 +14,7 @@ class Search extends React.Component {
         return (
             <div>
                 <SearchHeader keyword={keyword}/>
-                
+                <SearchList keyword={keyword} type={type} />
             </div>
             
         )
