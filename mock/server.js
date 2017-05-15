@@ -108,6 +108,18 @@ router.get('/api/detail/info/:id', function *(next){
     this.body = detailInfo
 })
 
+/*------------------------------------------------------------*/
+/* 加载用户评论 */
+var comments = require('./detail/comment')
+router.get('/api/detail/comment/:page/:id', function *(next){
+    const id = this.params.id
+    const page = this.params.page
+
+    console.log('request comment')
+    console.log(id, '   ', page)
+    this.body = comments
+})
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000 端口
