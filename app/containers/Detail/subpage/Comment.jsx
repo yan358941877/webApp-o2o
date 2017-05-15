@@ -2,6 +2,8 @@ import React from 'react'
 import './style.less'
 import {getCommentData} from '../../../fetch/detail/detail'
 import CommentList from '../../../components/CommentList'
+import LoadMore from '../../../components/LoadMore'
+
 class Comment extends React.Component {
     constructor(props){
         super(props)
@@ -32,7 +34,7 @@ class Comment extends React.Component {
             //console.log(json)
             this.setState({
                 data: this.state.data.concat(json.data),
-                page: json.page,
+                page: this.state.page+1,
                 hasMore: json.hasMore,
                 isLoading: false
             })
@@ -52,12 +54,13 @@ class Comment extends React.Component {
                 <h3>用户评论</h3>
                 <CommentList
                     comments={this.state.data} 
-                    hasMore={this.state.hasMore}/>
+                    hasMore={this.state.hasMore}
+                    onScroll={(event)=>{console.log('aaa')}}/>
                 {
                     this.state.hasMore
-                    ? <p 
-                        className="isLoading"
-                        onClick={this.loadMoreData.bind(this)}>正在加载中...</p>
+                    ? <LoadMore 
+                        handleClick={this.loadMoreData.bind(this)}
+                        isLoadingMore={this.state.isLoading}/>
                     : ''
                 }
             </div>

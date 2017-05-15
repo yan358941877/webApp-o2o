@@ -25,7 +25,7 @@ router.get('/api/2', function *(next){
 })
 // 处理post请求
 router.post('/api/post', koaBody, function *(next){
-    console.log(this.request.body)
+    // console.log(this.request.body)
 
     this.body = JSON.stringify(this.request.body)
 })
@@ -46,8 +46,8 @@ router.get('/api/guess/:city/:page', function *(next){
     const params = this.params
     const paramsCity = params.city
     const paramsPage = params.page
-    console.log(paramsCity)
-    console.log(paramsPage)
+    // console.log(paramsCity)
+    // console.log(paramsPage)
     if(paramsPage==8){
         guesslist.hasMore = false
     }else {
@@ -67,10 +67,10 @@ router.get('/api/search/:city/:type/:keyword/:page', function *(next){
     const paramsKeyword = params.keyword
     const paramsPage = params.page
 
-    console.log(paramsCity)
-    console.log(paramsType)
-    console.log(paramsKeyword)
-    console.log(paramsPage)
+    // console.log(paramsCity)
+    // console.log(paramsType)
+    // console.log(paramsKeyword)
+    // console.log(paramsPage)
     
     if(paramsPage == 8){
         searchListData.hasMore = false
@@ -86,9 +86,9 @@ router.get('/api/search/:city/:type/:page', function *(next){
     const paramsType = params.type
     const paramsPage = params.page
 
-    console.log(paramsCity)
-    console.log(paramsType)
-    console.log(paramsPage)
+    // console.log(paramsCity)
+    // console.log(paramsType)
+    // console.log(paramsPage)
     
     if(paramsPage == 8){
         searchListData.hasMore = false
@@ -114,9 +114,12 @@ var comments = require('./detail/comment')
 router.get('/api/detail/comment/:page/:id', function *(next){
     const id = this.params.id
     const page = this.params.page
-
-    console.log('request comment')
-    console.log(id, '   ', page)
+    if(page>8){
+        comments.hasMore = false
+    }else {
+        comments.hasMore = true
+    }
+    
     this.body = comments
 })
 
