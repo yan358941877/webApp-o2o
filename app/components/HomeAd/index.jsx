@@ -3,7 +3,7 @@ import './style.less'
 
 class HomeAd extends React.Component {
     render() {
-        console.log(this.props.data)
+        //console.log(this.props.data)
         return (         
             <div id="super-overbalance">
                 <h2>超级特惠</h2>

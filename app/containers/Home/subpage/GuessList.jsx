@@ -64,7 +64,7 @@ class GuessList extends React.Component {
         })
     }
     render(){
-        console.log(this.state.hasMore)
+        //console.log(this.state.hasMore)
         return (
             <div id="guess-like">
                 <h2 className="home-list-title">猜你喜欢</h2>

@@ -10,11 +10,11 @@ class Search extends React.Component {
         let params = this.props.params
         let type = params.type
         let keyword = params.keyword
-        
+        console.log(params)
         return (
             <div>
                 <SearchHeader keyword={keyword}/>
-                <SearchList keyword={keyword} type={type} />
+                <SearchList type={type} keyword={keyword}/>
             </div>
             
         )

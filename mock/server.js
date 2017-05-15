@@ -56,6 +56,48 @@ router.get('/api/guess/:city/:page', function *(next){
     this.body = guesslist
 })
 
+
+var searchListData = require('./search/list.js')
+router.get('/api/search/:city/:type/:keyword/:page', function *(next){
+    const params = this.params
+    const paramsCity = params.city
+    const paramsType = params.type
+    const paramsKeyword = params.keyword
+    const paramsPage = params.page
+
+    console.log(paramsCity)
+    console.log(paramsType)
+    console.log(paramsKeyword)
+    console.log(paramsPage)
+    
+    if(paramsPage == 8){
+        searchListData.hasMore = false
+    }else {
+        searchListData.hasMore = true
+    }
+    this.body = searchListData
+})
+
+router.get('/api/search/:city/:type/:page', function *(next){
+    const params = this.params
+    const paramsCity = params.city
+    const paramsType = params.type
+    const paramsPage = params.page
+
+    console.log(paramsCity)
+    console.log(paramsType)
+    console.log(paramsPage)
+    
+    if(paramsPage == 8){
+        searchListData.hasMore = false
+    }else {
+        searchListData.hasMore = true
+    }
+    this.body = searchListData
+})
+
+
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000 端口
