@@ -56,7 +56,9 @@ router.get('/api/guess/:city/:page', function *(next){
     this.body = guesslist
 })
 
+/*------------------------------------------------------------*/
 
+/* 响应搜索请求 */
 var searchListData = require('./search/list.js')
 router.get('/api/search/:city/:type/:keyword/:page', function *(next){
     const params = this.params
@@ -96,7 +98,15 @@ router.get('/api/search/:city/:type/:page', function *(next){
     this.body = searchListData
 })
 
-
+/*------------------------------------------------------------*/
+/* 响应商家详情请求 */
+var detailInfo = require('./detail/info')
+router.get('/api/detail/info/:id', function *(next){
+    const id = this.params.id
+    // console.log(id)
+    // console.log(detailInfo)
+    this.body = detailInfo
+})
 
 app.use(router.routes()).use(router.allowedMethods())
 

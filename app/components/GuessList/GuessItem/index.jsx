@@ -1,10 +1,14 @@
 import React from 'react'
 import './style.less'
+import {Link} from 'react-router'
 class GuessItem extends React.Component {
     render(){
         let data = this.props.data
+
         return (
+            
             <div className="guess-item">
+                <Link to={'/detail/'+data.id} >
                 <div className="item-img-container float-left">
                     <img src={data.img} alt={data.title}/>
                 </div>
@@ -21,6 +25,7 @@ class GuessItem extends React.Component {
                         <span className="number float-right">已售{data.number}</span>
                     </div>
                 </div>
+                </Link>
             </div>
         )
     }
