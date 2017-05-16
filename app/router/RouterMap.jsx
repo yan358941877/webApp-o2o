@@ -6,6 +6,8 @@ import Home from '../containers/Home'
 import City from '../containers/City'
 import Search from '../containers/Search'
 import Detail from '../containers/Detail'
+import LoginContainer from '../containers/LoginContainer'
+import User from '../containers/User'
 class RouterMap extends React.Component{
     render(){
         return(
@@ -15,6 +17,8 @@ class RouterMap extends React.Component{
                     <Route path='/city' component={City} />
                     <Route path='/search/:type(/:keyword)' component={Search}/>
                     <Route path='/detail/:id' component={Detail} />
+                    <Route path='/login(/:router)' component={LoginContainer}/>
+                    <Route path='/user(/:username)' component={User}/>
                 </Route>
             </Router>
         )
