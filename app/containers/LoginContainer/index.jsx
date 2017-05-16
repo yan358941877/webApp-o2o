@@ -25,8 +25,7 @@ class LoginContainer extends React.Component{
     doCheck(){
         const userinfo = this.props.userinfo
         if(userinfo.username){
-            // 如果存在username，则说明已经登录
-            // 去往 用户中心页面
+            hashHistory.push('/user')
         }else{
             // 尚未登录
             this.setState({
@@ -36,6 +35,7 @@ class LoginContainer extends React.Component{
     }
     // 登录成功之后的处理
     handleLogin(username){
+        
         const actions = this.props.userInfoActions
         let userinfo = this.props.userinfo
         userinfo.username = username
@@ -52,8 +52,7 @@ class LoginContainer extends React.Component{
         }
     }
     render(){
-        console.log(this.props)
-        console.log(this.state.checking)
+       
         return (
             <div>
                 <Header title='用户登录'/>

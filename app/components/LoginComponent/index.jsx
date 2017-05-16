@@ -29,7 +29,7 @@ class LoginComponent extends React.Component {
             return
         }
         if(this.props.handleLogin){
-            this.props.handleLogin(this.state.phone)
+            this.props.handleLogin(this.refs.phone.value)
         }
     }
     render(){

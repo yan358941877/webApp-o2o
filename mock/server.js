@@ -123,6 +123,15 @@ router.get('/api/detail/comment/:page/:id', function *(next){
     this.body = comments
 })
 
+/*------------------------------------------------------------*/
+/* 加载用户订单列表 */
+var orderlist = require('./orderlist/orderlist')
+router.get('/api/orderlist/:username', function *(next){
+    const username = this.params.username
+    this.body = orderlist
+})
+
+
 app.use(router.routes()).use(router.allowedMethods())
 
 // 监听3000 端口
