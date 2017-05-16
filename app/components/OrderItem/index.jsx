@@ -15,6 +15,7 @@ class OrderItem extends React.Component{
                     <p className='order-num'>数量：￥{item.price}</p>
                     <p className='order-name'>价格：{item.count}</p>
                 </div>
+                <span className='comment'>评价</span>
             </div>
         )
     }
